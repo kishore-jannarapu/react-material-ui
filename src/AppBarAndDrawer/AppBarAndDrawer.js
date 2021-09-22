@@ -18,6 +18,7 @@ import Icon from "@mui/material/Icon";
 import PalettePicker from "../Theme/PalettePicker";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Switch, Typography } from "@mui/material";
+import { deepOrange } from "@mui/material/colors";
 
 export const drawerWidth = 240;
 
@@ -64,11 +65,21 @@ const useStyles = makeStyles((theme) => ({
 function DarkMode({ currentTheme, setCurrentTheme }) {
   const [dark, setDark] = useState(false);
   useEffect(() => {
-    const updatedTheme = {
-      ...currentTheme,
-      palette: { ...currentTheme.palette, mode: dark ? "dark" : "light" },
-    };
-    // console.log("dark =" + dark + " theme=" + JSON.stringify(updatedTheme));
+    const updatedTheme = !dark
+      ? {
+          ...currentTheme,
+          palette: {
+            ...currentTheme.palette,
+            mode: "light",
+            primary: deepOrange,
+            secondary: deepOrange,
+          },
+        }
+      : {
+          ...currentTheme,
+          palette: { ...currentTheme.palette, mode: dark ? "dark" : "light" },
+        };
+    console.log("dark =" + dark + " theme=" + JSON.stringify(updatedTheme));
     setCurrentTheme(updatedTheme);
   }, [dark]);
   const flipDarkMode = (event) => {

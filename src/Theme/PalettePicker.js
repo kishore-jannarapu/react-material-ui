@@ -25,11 +25,12 @@ const Flex = styled.div`
 
 export default function PalettePicker({ currentTheme, setCurrentTheme }) {
   const updateTheme = (e, color) => {
+    console.log(currentTheme);
     const updatedTheme = {
       ...currentTheme,
-      palette: { primary: color, secondary: color },
+      palette: { ...currentTheme.palette, primary: color, secondary: color },
     };
-    // console.log(updatedTheme);
+    console.log(updatedTheme);
     setCurrentTheme(updatedTheme);
   };
   return (
