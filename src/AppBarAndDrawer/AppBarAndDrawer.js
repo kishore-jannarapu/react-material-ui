@@ -63,27 +63,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function DarkMode({ currentTheme, setCurrentTheme }) {
-  const [dark, setDark] = useState(false);
-  useEffect(() => {
-    const updatedTheme = !dark
-      ? {
-          ...currentTheme,
-          palette: {
-            ...currentTheme.palette,
-            mode: "light",
-            primary: deepOrange,
-            secondary: deepOrange,
-          },
-        }
-      : {
-          ...currentTheme,
-          palette: { ...currentTheme.palette, mode: dark ? "dark" : "light" },
-        };
-    console.log("dark =" + dark + " theme=" + JSON.stringify(updatedTheme));
-    setCurrentTheme(updatedTheme);
-  }, [dark]);
-  const flipDarkMode = (event) => {
+  const [dark, setDark] = useState(true);
+  const flipDarkMode = () => {
     setDark(!dark);
+    setCurrentTheme({
+      ...currentTheme,
+      palette: {
+        primary: currentTheme.palette.primary,
+        secondary: currentTheme.palette.secondary,
+        mode: dark ? "light" : "dark",
+      },
+    });
   };
   return <Switch checked={dark} onChange={flipDarkMode} color="primary" />;
 }
