@@ -9,7 +9,7 @@ export const currentDay = moment();
 let defaultData = {};
 
 function addRandomExpense(data, setData) {
-  return function () {
+  return function() {
     const newDate = currentDay.add(1, "days").valueOf();
     const newMoney =
       Math.floor(Math.random() * 3000 - 1000) -
@@ -32,6 +32,7 @@ function addRandomExpense(data, setData) {
 }
 
 for (var i = 0; i < 12; i++) {
+  // eslint-disable-next-line no-loop-func
   addRandomExpense(defaultData, (newData) => {
     defaultData = newData;
   })();

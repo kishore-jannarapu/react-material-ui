@@ -25,21 +25,20 @@ const Flex = styled.div`
 
 export default function PalettePicker({ currentTheme, setCurrentTheme }) {
   const updateTheme = (e, color) => {
-    console.log(currentTheme);
     const updatedTheme = {
       ...currentTheme,
       palette: { ...currentTheme.palette, primary: color, secondary: color },
     };
-    console.log(updatedTheme);
     setCurrentTheme(updatedTheme);
   };
   return (
     <Flex>
-      {colors.map((color) => (
+      {colors.map((color, index) => (
         <Color
           onClick={(e) => updateTheme(e, color)}
           selected={currentTheme.palette.primary[300] === color[300]}
           color={color[300]}
+          key={index}
         />
       ))}
     </Flex>

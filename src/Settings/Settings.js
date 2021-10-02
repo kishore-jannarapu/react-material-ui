@@ -3,7 +3,7 @@ import Content from "../Dashboard/Content";
 import Typography from "@mui/material/Typography";
 import PalettePicker from "../Theme/PalettePicker";
 
-export default function ({ currentTheme, setCurrentTheme }) {
+export default function Setings({ currentTheme, setCurrentTheme }) {
   return (
     <Content>
       <Typography variant="h3"> Settings </Typography>

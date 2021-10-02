@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AppBarAndDrawer from "./AppBarAndDrawer/AppBarAndDrawer";
+import NavBar from "./NavBar/NavBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { SignIn } from "./SignIn";
 import { Dashboard } from "./Dashboard/Dashboard";
@@ -16,15 +16,14 @@ import Trips from "./Trips/Trips";
 import Driver from "./People/Driver";
 import Components from "./Components/Components";
 import Settings from "./Settings/Settings";
-//import { LocalizationProvider } from "@material-ui/pickers";
 import { configureStore } from "@reduxjs/toolkit";
 import peopleReducer from "./ReduxTable/peopleSlice";
 import { Provider } from "react-redux";
-// import { PaletteMode } from "@mui/material";
+import Footer from "./Components/Footer";
 import "./index.css";
+import { Divider } from "@mui/material";
 
 export default function App() {
-  // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
   const store = configureStore({
     reducer: {
       people: peopleReducer,
@@ -33,54 +32,56 @@ export default function App() {
   const [currentTheme, setCurrentTheme] = useTheme();
 
   return (
-    // <StyledEngineProvider injectFirst>
-    <ThemeProvider theme={currentTheme}>
-      <Provider store={store}>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={currentTheme}>
         <DataProvider>
-          <Router>
-            <div>
-              <AppBarAndDrawer
-                currentTheme={currentTheme}
-                setCurrentTheme={setCurrentTheme}
-              />
-              <Switch>
-                <Route path="/login">
-                  <SignIn />
-                </Route>
-                <Route path="/profile">
-                  <Driver id={1} />
-                </Route>
-                <Route path="/dashboard">
-                  <Dashboard />
-                </Route>
-                <Route exact path="/people">
-                  <People />
-                </Route>
-                <Route path={`/people/:driverId`}>
-                  <Driver />
-                </Route>
-                <Route path="/map">
-                  <Trips />
-                </Route>
-                <Route path="/components">
-                  <Components />
-                </Route>
-                <Route path="/settings">
-                  <Settings
-                    currentTheme={currentTheme}
-                    setCurrentTheme={setCurrentTheme}
-                  />
-                </Route>
-                <Route path="/">
-                  <Home />
-                </Route>
-              </Switch>
+          <Provider store={store}>
+            <NavBar
+              currentTheme={currentTheme}
+              setCurrentTheme={setCurrentTheme}
+            />
+            <div className="site-container">
+              <Router>
+                <Switch>
+                  <Route exact path="/login">
+                    <SignIn />
+                  </Route>
+                  <Route path="/profile">
+                    <Driver id={1} />
+                  </Route>
+                  <Route exact path="/dashboard">
+                    <Dashboard />
+                  </Route>
+                  <Route path="/people">
+                    <People />
+                  </Route>
+                  <Route exact path={`/people/:driverId`}>
+                    <Driver />
+                  </Route>
+                  <Route exact path="/map">
+                    <Trips />
+                  </Route>
+                  <Route exact path="/components">
+                    <Components />
+                  </Route>
+                  <Route exact path="/settings">
+                    <Settings
+                      currentTheme={currentTheme}
+                      setCurrentTheme={setCurrentTheme}
+                    />
+                  </Route>
+                  <Route exact path="/">
+                    <Home />
+                  </Route>
+                </Switch>
+              </Router>
+              <Divider />
+              <Footer />
             </div>
-          </Router>
+          </Provider>
         </DataProvider>
-      </Provider>
-    </ThemeProvider>
-    // </StyledEngineProvider>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }
 ReactDOM.render(<App />, document.getElementById("root"));

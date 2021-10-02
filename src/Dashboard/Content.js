@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "@mui/material/Container";
-import { drawerWidth } from "../AppBarAndDrawer/AppBarAndDrawer";
+import { drawerWidth } from "../NavBar/NavBar";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({

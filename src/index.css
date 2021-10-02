@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+.primary {
+  background-color: red;
+}
+.site-container {
+  position: relative;
+  top: 70px;
+  max-width: 1188px;
+  margin: 0 auto !important;
+}

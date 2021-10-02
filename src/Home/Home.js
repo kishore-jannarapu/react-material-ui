@@ -8,21 +8,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
 import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
 import { Link as RouterLink } from "react-router-dom";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://react.school">
-        React School
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -104,7 +90,7 @@ export function Home() {
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
-          <Container maxWidth="sm">
+          <Container maxWidth="md" width="sm">
             <Typography
               component="h1"
               variant="h2"
@@ -112,7 +98,7 @@ export function Home() {
               color="textPrimary"
               gutterBottom
             >
-              Elite Material Dashboard
+              Material UI Dashboard
             </Typography>
             <Typography
               variant="h5"
@@ -121,7 +107,7 @@ export function Home() {
               paragraph
             >
               Explore our Material UI template and get started building your
-              next billion dollar app.
+              app.
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justifyContent="center">
@@ -173,22 +159,6 @@ export function Home() {
           </Grid>
         </Container>
       </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="textSecondary"
-          component="p"
-        >
-          Footer Content
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
     </React.Fragment>
   );
 }

@@ -2,14 +2,13 @@
   "name": "recat-material-dashboards",
   "version": "0.1.2",
   "private": true,
- 
   "scripts": {
-    "start": "parcel src/index.html",
+    "start": "cross-env NODE_ENV=development parcel src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint ./src",
     "test": "jest --watch --verbose=false",
-    "build": "NODE_ENV=production parcel build src/index.html --no-autoinstall --no-cache --no-source-maps && cp dist/index.html dist/404.html"
-  }, 
+    "build": "cross-env NODE_ENV=production parcel build src/index.html --no-autoinstall --no-cache --no-source-maps && cp dist/index.html dist/404.html"
+  },
   "dependencies": {
     "@date-io/date-fns": "1.x",
     "@emotion/react": "^11.4.1",
@@ -22,6 +21,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "cross-env": "^7.0.3",
     "date-fns": "^2.12.0",
     "google-maps-react": "^2.0.2",
     "highcharts": "^8.0.0",

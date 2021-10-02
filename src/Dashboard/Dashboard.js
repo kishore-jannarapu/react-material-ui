@@ -8,7 +8,7 @@ import Link from "@mui/material/Link";
 import Chart from "./Chart";
 import TotalCard from "./TotalCard";
 import ExpensesTable from "./ExpensesTable";
-import { drawerWidth } from "../AppBarAndDrawer/AppBarAndDrawer";
+import { drawerWidth } from "../NavBar/NavBar";
 import { makeStyles } from "@mui/styles";
 import AppBar from "@mui/material/AppBar";
 import Content from "./Content";
@@ -16,17 +16,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import CovidWarning from "./CovidWarning";
 import Tools from "./Tools";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://react.school/"></Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -109,7 +98,7 @@ export function Dashboard() {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const balancePaper = clsx(classes.paper, classes.balanceCard);
   return (
-    <>
+    <React.Fragment>
       <SimpleTabs />
       <Content>
         <Grid container spacing={3}>
@@ -142,10 +131,7 @@ export function Dashboard() {
             </Paper>
           </Grid>
         </Grid>
-        <Box pt={4}>
-          <Copyright />
-        </Box>
       </Content>
-    </>
+    </React.Fragment>
   );
 }
