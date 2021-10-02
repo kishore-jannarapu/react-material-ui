@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -9,10 +9,12 @@ import Toolbar from "@mui/material/Toolbar";
 import { makeStyles } from "@mui/styles";
 import PalettePicker from "../Theme/PalettePicker";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import ThemeSwitch from "../Theme/ThemeSwitch";
 import "../index.css";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link as ReactLink } from "react-router-dom";
+import Menu from "./Menu";
+import { ThemeContext } from "../Providers/ThemeContextProvider";
 
 export const drawerWidth = 240;
 
@@ -61,6 +63,7 @@ function NavBar(props) {
   const classes = useStyles();
   const isHome = false; // pathname === "/";
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { mode } = useContext(ThemeContext);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -68,75 +71,79 @@ function NavBar(props) {
 
   /* Modifying the source code from the template example to use the react router pathname hook to set
   selected prop and to use the react router component prop */
-
   return (
-    <div className={classes.root}>
-      <div
-        style={{
-          backgroundColor: currentTheme.palette.primary.main,
-          width: "100%",
-          height: "70px",
-          position: "fixed",
-        }}
-      ></div>
-      <CssBaseline />
-      {/*CssBaseline component to kickstart an elegant, consistent, and simple baseline to build upon */}
-      <AppBar
-        position="fixed"
-        className={isHome ? "" : classes.appBar}
-        enableColorOnDark
-        sx={{
-          maxWidth: "1188px",
-          margin: "0 auto",
-          left: 0,
-          right: 0,
-          boxShadow: "none",
-        }}
-      >
-        <Toolbar
-          sx={{
-            display: "flex",
-            "align-items": "right",
-            // width: `calc(100% - ${drawerWidth}px)`,
+    <BrowserRouter>
+      <div className={classes.root}>
+        <div
+          style={{
+            backgroundColor: "#ccc",
             width: "100%",
-            backgroundColor: currentTheme.palette.primary.main,
-            height: "70px",
+            height: "64px",
+            position: "fixed",
+          }}
+        ></div>
+        <CssBaseline />
+        {/*CssBaseline component to kickstart an elegant, consistent, and simple baseline to build upon */}
+        <AppBar
+          position="fixed"
+          className={isHome ? "" : classes.appBar}
+          enableColorOnDark
+          sx={{
+            maxWidth: "1188px",
+            margin: "0 auto",
+            left: 0,
+            right: 0,
+            boxShadow: "none",
           }}
         >
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
-            size="large"
+          <Toolbar
+            sx={{
+              display: "flex",
+              "align-items": "right",
+              // width: `calc(100% - ${drawerWidth}px)`,
+              width: "100%",
+              backgroundColor: "#ccc",
+              height: "64px",
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography>HRMS</Typography>
-
-          <div style={{ flexGrow: 1 }}></div>
-
-          <PalettePicker
-            setCurrentTheme={setCurrentTheme}
-            currentTheme={currentTheme}
-          />
-          <ThemeSwitch
-            setCurrentTheme={setCurrentTheme}
-            currentTheme={currentTheme}
-          />
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerToggle}
-            size="large"
-          >
-            <AccountCircleIcon sx={{ size: 500 }} />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-    </div>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              className={classes.menuButton}
+              size="large"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Link component={ReactLink} to="/">
+              <Typography variant="h4">HRMS</Typography>
+            </Link>
+            <div style={{ flexGrow: 0.3 }}></div>
+            <Menu theme={currentTheme} />
+            {/* Horizontal Menu End*/}
+            <div style={{ flexGrow: 1 }}></div>
+            <PalettePicker
+              setCurrentTheme={setCurrentTheme}
+              currentTheme={currentTheme}
+            />
+            <ThemeSwitch
+              setCurrentTheme={setCurrentTheme}
+              currentTheme={currentTheme}
+            />
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="end"
+              onClick={handleDrawerToggle}
+              size="large"
+            >
+              <AccountCircleIcon sx={{ size: 500 }} />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+      </div>
+    </BrowserRouter>
   );
 }
 

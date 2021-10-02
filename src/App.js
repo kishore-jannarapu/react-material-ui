@@ -1,7 +1,7 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import ReactDOM from "react-dom";
 import NavBar from "./NavBar/NavBar";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { SignIn } from "./SignIn";
 import { Dashboard } from "./Dashboard/Dashboard";
 import { Home } from "./Home/Home";
@@ -22,6 +22,7 @@ import { Provider } from "react-redux";
 import Footer from "./Components/Footer";
 import "./index.css";
 import { Divider } from "@mui/material";
+import ThemeContextProvider from "./Providers/ThemeContextProvider";
 
 export default function App() {
   const store = configureStore({
@@ -32,56 +33,60 @@ export default function App() {
   const [currentTheme, setCurrentTheme] = useTheme();
 
   return (
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={currentTheme}>
-        <DataProvider>
-          <Provider store={store}>
-            <NavBar
-              currentTheme={currentTheme}
-              setCurrentTheme={setCurrentTheme}
-            />
-            <div className="site-container">
-              <Router>
-                <Switch>
-                  <Route exact path="/login">
-                    <SignIn />
-                  </Route>
-                  <Route path="/profile">
-                    <Driver id={1} />
-                  </Route>
-                  <Route exact path="/dashboard">
-                    <Dashboard />
-                  </Route>
-                  <Route path="/people">
-                    <People />
-                  </Route>
-                  <Route exact path={`/people/:driverId`}>
-                    <Driver />
-                  </Route>
-                  <Route exact path="/map">
-                    <Trips />
-                  </Route>
-                  <Route exact path="/components">
-                    <Components />
-                  </Route>
-                  <Route exact path="/settings">
-                    <Settings
-                      currentTheme={currentTheme}
-                      setCurrentTheme={setCurrentTheme}
-                    />
-                  </Route>
-                  <Route exact path="/">
-                    <Home />
-                  </Route>
-                </Switch>
-              </Router>
-              <Divider />
-              <Footer />
-            </div>
-          </Provider>
-        </DataProvider>
-      </ThemeProvider>
-    </StyledEngineProvider>
+    <div style={{ backgroundColor: "#2220000" }}>
+      <StyledEngineProvider injectFirst>
+        <ThemeContextProvider>
+          <ThemeProvider theme={currentTheme}>
+            <DataProvider>
+              <Provider store={store}>
+                <NavBar
+                  currentTheme={currentTheme}
+                  setCurrentTheme={setCurrentTheme}
+                />
+                <div className="site-container">
+                  <BrowserRouter>
+                    <Switch>
+                      <Route exact path="/login">
+                        <SignIn />
+                      </Route>
+                      <Route path="/profile">
+                        <Driver id={1} />
+                      </Route>
+                      <Route exact path="/dashboard">
+                        <Dashboard />
+                      </Route>
+                      <Route path="/people">
+                        <People />
+                      </Route>
+                      <Route exact path={`/people/:driverId`}>
+                        <Driver />
+                      </Route>
+                      <Route exact path="/map">
+                        <Trips />
+                      </Route>
+                      <Route exact path="/components">
+                        <Components />
+                      </Route>
+                      <Route exact path="/settings">
+                        <Settings
+                          currentTheme={currentTheme}
+                          setCurrentTheme={setCurrentTheme}
+                        />
+                      </Route>
+                      <Route path="/">
+                        <Home />
+                      </Route>
+                    </Switch>
+                  </BrowserRouter>
+                  <Divider />
+                  <Footer />
+                </div>
+              </Provider>
+            </DataProvider>
+          </ThemeProvider>
+        </ThemeContextProvider>
+      </StyledEngineProvider>
+    </div>
   );
 }
 ReactDOM.render(<App />, document.getElementById("root"));

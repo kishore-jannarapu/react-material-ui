@@ -1,21 +1,33 @@
+import { IconButton } from "@mui/material";
 import React from "react";
-import { useState } from "react";
-import DarkLightSwitch from "../Components/Switches/DarkLightSwitch";
+import { useContext } from "react";
+import Brightness2TwoToneIcon from "@mui/icons-material/Brightness2TwoTone";
+import WbSunnyTwoToneIcon from "@mui/icons-material/WbSunnyTwoTone";
+import { ThemeContext } from "../Providers/ThemeContextProvider";
 
 export default function ThemeSwitch({ currentTheme, setCurrentTheme }) {
-  const [dark, setDark] = useState(true);
+  //const [dark, setDark] = useState(true);
+  const { mode, setMode } = useContext(ThemeContext);
   const flipDarkMode = () => {
-    setDark(!dark);
+    setMode(mode === "dark" ? "light" : "dark");
     setCurrentTheme({
       ...currentTheme,
       palette: {
         primary: currentTheme.palette.primary,
         secondary: currentTheme.palette.secondary,
-        mode: dark ? "light" : "dark",
+        mode: mode === "dark" ? "light" : "dark",
       },
     });
   };
   return (
-    <DarkLightSwitch checked={dark} onChange={flipDarkMode} color="primary" />
+    <>
+      {/* <DarkLightSwitch checked={dark} onChange={flipDarkMode} color="primary" /> */}
+      <IconButton
+        onClick={flipDarkMode}
+        sx={{ padding: "5px", backgroundColor: "transparent" }}
+      >
+        {mode === "light" ? <Brightness2TwoToneIcon /> : <WbSunnyTwoToneIcon />}
+      </IconButton>
+    </>
   );
 }

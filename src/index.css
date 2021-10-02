@@ -1,12 +1,17 @@
 * {
   box-sizing: border-box;
 }
+body {
+  /*background: #a770ef;
+  /*background: -webkit-linear-gradient(to right, #fdb99b, #cf8bf3, #a770ef);
+  background: linear-gradient(to right, #fdb99b, #cf8bf3, #a770ef); */
+}
 .primary {
   background-color: red;
 }
 .site-container {
   position: relative;
-  top: 70px;
+  top: 64px;
   max-width: 1188px;
   margin: 0 auto !important;
 }
