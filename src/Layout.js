@@ -19,7 +19,7 @@ export default function Layout({ currentTheme, setCurrentTheme }) {
   return (
     <div
       style={{
-        backgroundColor: mode === "dark" ? "#2b2b2b" : "#f3f3f3",
+        backgroundColor: mode === "dark" ? "#2b2b2b" : "#f4f5f7",
       }}
     >
       <BrowserRouter>

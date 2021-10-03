@@ -118,7 +118,7 @@ function NavBar(props) {
             <MenuIcon />
           </IconButton>
           <Link component={ReactLink} to="/" underline="none">
-            <Typography variant="h4">HRMS</Typography>
+            <Typography variant="h5">HRMS</Typography>
           </Link>
           <div style={{ flexGrow: 0.3 }}></div>
           <Menu theme={currentTheme} />
