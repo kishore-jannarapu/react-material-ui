@@ -15,6 +15,8 @@ import "../index.css";
 import { BrowserRouter, Link as ReactLink } from "react-router-dom";
 import Menu from "./Menu";
 import { ThemeContext } from "../Providers/ThemeContextProvider";
+import { Divider } from "@mui/material";
+import { PersonOutlineOutlined, PersonOutlineSharp } from "@mui/icons-material";
 
 export const drawerWidth = 240;
 
@@ -72,78 +74,76 @@ function NavBar(props) {
   /* Modifying the source code from the template example to use the react router pathname hook to set
   selected prop and to use the react router component prop */
   return (
-    <BrowserRouter>
-      <div className={classes.root}>
-        <div
-          style={{
-            backgroundColor: "#ccc",
-            width: "100%",
-            height: "64px",
-            position: "fixed",
-          }}
-        ></div>
-        <CssBaseline />
-        {/*CssBaseline component to kickstart an elegant, consistent, and simple baseline to build upon */}
-        <AppBar
-          position="fixed"
-          className={isHome ? "" : classes.appBar}
-          enableColorOnDark
+    <div
+      style={{
+        backgroundColor: mode === "dark" ? "#121212" : "#fff",
+        width: "100%",
+        height: "64px",
+        position: "fixed",
+        zIndex: 100,
+      }}
+    >
+      <CssBaseline />
+      {/*CssBaseline component to kickstart an elegant, consistent, and simple baseline to build upon */}
+      <AppBar
+        position="fixed"
+        className={isHome ? "" : classes.appBar}
+        enableColorOnDark
+        sx={{
+          maxWidth: "1188px",
+          margin: "0 auto",
+          left: 0,
+          right: 0,
+          boxShadow: "none",
+        }}
+      >
+        <Toolbar
           sx={{
-            maxWidth: "1188px",
-            margin: "0 auto",
-            left: 0,
-            right: 0,
-            boxShadow: "none",
+            display: "flex",
+            "align-items": "right",
+            // width: `calc(100% - ${drawerWidth}px)`,
+            width: "100%",
+            backgroundColor: mode === "dark" ? "#121212" : "#fff",
+            height: "64px",
           }}
         >
-          <Toolbar
-            sx={{
-              display: "flex",
-              "align-items": "right",
-              // width: `calc(100% - ${drawerWidth}px)`,
-              width: "100%",
-              backgroundColor: "#ccc",
-              height: "64px",
-            }}
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            className={classes.menuButton}
+            size="large"
           >
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              className={classes.menuButton}
-              size="large"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Link component={ReactLink} to="/">
-              <Typography variant="h4">HRMS</Typography>
-            </Link>
-            <div style={{ flexGrow: 0.3 }}></div>
-            <Menu theme={currentTheme} />
-            {/* Horizontal Menu End*/}
-            <div style={{ flexGrow: 1 }}></div>
-            <PalettePicker
+            <MenuIcon />
+          </IconButton>
+          <Link component={ReactLink} to="/" underline="none">
+            <Typography variant="h4">HRMS</Typography>
+          </Link>
+          <div style={{ flexGrow: 0.3 }}></div>
+          <Menu theme={currentTheme} />
+          {/* Horizontal Menu End*/}
+          <div style={{ flexGrow: 1 }}></div>
+          {/* <PalettePicker
               setCurrentTheme={setCurrentTheme}
               currentTheme={currentTheme}
-            />
-            <ThemeSwitch
-              setCurrentTheme={setCurrentTheme}
-              currentTheme={currentTheme}
-            />
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="end"
-              onClick={handleDrawerToggle}
-              size="large"
-            >
-              <AccountCircleIcon sx={{ size: 500 }} />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-      </div>
-    </BrowserRouter>
+            /> */}
+          <ThemeSwitch
+            setCurrentTheme={setCurrentTheme}
+            currentTheme={currentTheme}
+          />
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="end"
+            onClick={handleDrawerToggle}
+            size="large"
+          >
+            <PersonOutlineSharp fontSize="large" color="primary" />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }
 

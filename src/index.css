@@ -10,8 +10,7 @@ body {
   background-color: red;
 }
 .site-container {
-  position: relative;
-  top: 64px;
+  padding-top: 50px;
   max-width: 1188px;
   margin: 0 auto !important;
 }

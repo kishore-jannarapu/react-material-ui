@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   heroContent: {
-    backgroundColor: theme.palette.background.paper,
+    //backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
   },
   heroButtons: {
@@ -89,7 +89,7 @@ export function Home() {
     <React.Fragment>
       <main>
         {/* Hero unit */}
-        <div className={classes.heroContent}>
+        <Card className={classes.card}>
           <Container maxWidth="md" width="sm">
             <Typography
               component="h1"
@@ -118,16 +118,16 @@ export function Home() {
                     variant="contained"
                     color="primary"
                   >
-                    Sign In
+                    Login
                   </Button>
                 </Grid>
               </Grid>
             </div>
           </Container>
-        </div>
-        <Container className={classes.cardGrid} maxWidth="md">
+        </Card>
+        <Container className={classes.cardGrid} sx={{ width: "100%" }}>
           {/* End hero unit */}
-          <Grid container spacing={4}>
+          <Grid container spacing={2}>
             {cards.map((card) => (
               <Grid item key={card.name} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>

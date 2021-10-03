@@ -6,7 +6,6 @@ import WbSunnyTwoToneIcon from "@mui/icons-material/WbSunnyTwoTone";
 import { ThemeContext } from "../Providers/ThemeContextProvider";
 
 export default function ThemeSwitch({ currentTheme, setCurrentTheme }) {
-  //const [dark, setDark] = useState(true);
   const { mode, setMode } = useContext(ThemeContext);
   const flipDarkMode = () => {
     setMode(mode === "dark" ? "light" : "dark");
@@ -26,7 +25,19 @@ export default function ThemeSwitch({ currentTheme, setCurrentTheme }) {
         onClick={flipDarkMode}
         sx={{ padding: "5px", backgroundColor: "transparent" }}
       >
-        {mode === "light" ? <Brightness2TwoToneIcon /> : <WbSunnyTwoToneIcon />}
+        {mode === "light" ? (
+          <Brightness2TwoToneIcon
+            color="primary"
+            fontSize="medium"
+            sx={{ height: "30px" }}
+          />
+        ) : (
+          <WbSunnyTwoToneIcon
+            color="primary"
+            fontSize="medium"
+            sx={{ height: "30px" }}
+          />
+        )}
       </IconButton>
     </>
   );

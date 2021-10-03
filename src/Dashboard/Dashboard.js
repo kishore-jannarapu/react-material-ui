@@ -96,7 +96,7 @@ export function Dashboard() {
   const balancePaper = clsx(classes.paper, classes.balanceCard);
   return (
     <React.Fragment>
-      <SimpleTabs />
+      {/* <SimpleTabs /> */}
       <Content>
         <Grid container spacing={3}>
           <Grid item xs={12} md={7} lg={8}>
