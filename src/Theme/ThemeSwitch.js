@@ -1,9 +1,9 @@
 import { IconButton } from "@mui/material";
 import React from "react";
 import { useContext } from "react";
-import Brightness2TwoToneIcon from "@mui/icons-material/Brightness2TwoTone";
 import WbSunnyTwoToneIcon from "@mui/icons-material/WbSunnyTwoTone";
 import { ThemeContext } from "../Providers/ThemeContextProvider";
+import { FiMoon } from "react-icons/Fi";
 
 export default function ThemeSwitch({ currentTheme, setCurrentTheme }) {
   const { mode, setMode } = useContext(ThemeContext);
@@ -23,14 +23,16 @@ export default function ThemeSwitch({ currentTheme, setCurrentTheme }) {
       {/* <DarkLightSwitch checked={dark} onChange={flipDarkMode} color="primary" /> */}
       <IconButton
         onClick={flipDarkMode}
-        sx={{ padding: "5px", backgroundColor: "transparent" }}
+        color="primary"
+        sx={{ padding: "5px", color: "primary" }}
       >
         {mode === "light" ? (
-          <Brightness2TwoToneIcon
-            color="primary"
-            fontSize="medium"
-            sx={{ height: "30px" }}
-          />
+          // <Brightness2TwoToneIcon
+          //   color="primary"
+          //   fontSize="medium"
+          //   sx={{ height: "30px" }}
+          // />
+          <FiMoon style={{ color: currentTheme.palette.primary }} />
         ) : (
           <WbSunnyTwoToneIcon
             color="primary"

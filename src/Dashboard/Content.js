@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "@mui/material/Container";
-import { drawerWidth } from "../NavBar/NavBar";
+//import { drawerWidth } from "../NavBar/NavBar";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -11,8 +11,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     overflow: "auto",
     [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
+      // width: `calc(100% - ${drawerWidth}px)`,
+      // marginLeft: drawerWidth,
     },
   },
   container: {
