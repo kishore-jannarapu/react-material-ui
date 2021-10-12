@@ -7,7 +7,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint ./src",
     "test": "jest --watch --verbose=false",
-    "build": "npm install react-icons --save && webpack --mode production"
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "@babel/runtime": "^7.15.4",
