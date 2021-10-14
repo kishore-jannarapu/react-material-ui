@@ -61,7 +61,7 @@ export default function Layout({ currentTheme, setCurrentTheme }) {
             </Route>
           </Switch>
           <Divider />
-          <Footer />
+          <Footer theme={currentTheme} />
         </div>
       </BrowserRouter>
     </div>

@@ -7,9 +7,9 @@
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint ./src",
     "test": "jest --watch --verbose=false",
-    "build": "webpack --mode production",
-    "start": "cross-env NODE_ENV=development parcel src/index.html --open",
-    "build:parcel": "parcel build src/index.html --no-autoinstall --no-cache --no-source-maps && cp dist/index.html dist/404.html"
+    "build:webpack": "webpack --mode production",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --no-autoinstall --no-cache --no-source-maps && cp dist/index.html dist/404.html"
   },
   "dependencies": {
     "@babel/runtime": "^7.15.4",
