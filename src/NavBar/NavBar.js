@@ -29,34 +29,34 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
   },
   drawer: {
-    [theme.breakpoints.up("sm")]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
+    // [theme.breakpoints.up("sm")]: {
+    //   width: drawerWidth,
+    //   flexShrink: 0,
+    // },
   },
   appBar: {
-    [theme.breakpoints.up("sm")]: {
-      // width: `calc(100% - ${drawerWidth}px)`,
-      // marginLeft: drawerWidth,
-      backgroundColor: `#${theme.palette.primary[300].substring(1)}77`,
-    },
+    //[theme.breakpoints.up("sm")]: {
+    // width: `calc(100% - ${drawerWidth}px)`,
+    // marginLeft: drawerWidth,
+    // backgroundColor: `#${theme.palette.primary[300].substring(1)}77`,
+    //},
   },
   menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
+    // marginRight: theme.spacing(2),
+    // [theme.breakpoints.up("sm")]: {
+    //   display: "none",
+    // },
   },
-  toolbar: theme.mixins.toolbar,
+  //toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    //padding: theme.spacing(3),
   },
   active: {
-    backgroundColor: theme.palette.action.selected,
+    //backgroundColor: theme.palette.action.selected,
   },
 }));
 
@@ -120,7 +120,7 @@ function NavBar(props) {
           <Link component={ReactLink} to="/" underline="none">
             <Typography variant="h5">HRMS</Typography>
           </Link>
-          <div style={{ flexGrow: 0.3 }}></div>
+          <div style={{ flexGrow: 0.1 }}></div>
           <Menu theme={currentTheme} />
           {/* Horizontal Menu End*/}
           <div style={{ flexGrow: 1 }}></div>

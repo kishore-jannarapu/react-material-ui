@@ -10,14 +10,14 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     overflow: "auto",
-    [theme.breakpoints.up("sm")]: {
-      // width: `calc(100% - ${drawerWidth}px)`,
-      // marginLeft: drawerWidth,
-    },
+    //[theme.breakpoints.up("sm")]: {
+    // width: `calc(100% - ${drawerWidth}px)`,
+    // marginLeft: drawerWidth,
+    //},
   },
   container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
+    // paddingTop: theme.spacing(4),
+    // paddingBottom: theme.spacing(4),
     position: "relative",
   },
 }));

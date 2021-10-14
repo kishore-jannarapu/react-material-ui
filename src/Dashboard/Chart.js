@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useTheme } from "@mui/styles";
+import { useTheme } from "@mui/material/styles";
 import { DataContext } from "../Providers/DataProvider";
 import moment from "moment";
 import Title from "./Title";
@@ -42,6 +42,7 @@ function useOptions(theme, data, secondData) {
 
 export default function Chart() {
   const theme = useTheme();
+
   const { data } = useContext(DataContext);
   const chartData = Object.values(data)
     .map(({ amount, date }) => [date, amount])

@@ -1,5 +1,5 @@
 import React from "react";
-import { useTheme } from "@mui/styles";
+import { useTheme } from "@mui/material/styles";
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";

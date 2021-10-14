@@ -1,23 +1,25 @@
 {
   "name": "recat-material-dashboards",
-  "version": "0.1.2",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "webpack serve --mode development",
+    "start:webpack": "webpack serve --mode development",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint ./src",
     "test": "jest --watch --verbose=false",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "start": "cross-env NODE_ENV=development parcel src/index.html --open",
+    "build:parcel": "parcel build src/index.html --no-autoinstall --no-cache --no-source-maps && cp dist/index.html dist/404.html"
   },
   "dependencies": {
     "@babel/runtime": "^7.15.4",
     "@date-io/date-fns": "1.x",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@mui/icons-material": "^5.0.0-rc.1",
+    "@mui/icons-material": "^5.0.3",
     "@mui/lab": "^5.0.0-alpha.46",
-    "@mui/material": "^5.0.0-rc.1",
-    "@mui/styles": "^5.0.0-rc.1",
+    "@mui/material": "^5.0.3",
+    "@mui/styles": "^5.0.1",
     "@reduxjs/toolkit": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -59,11 +61,8 @@
     "faker": "^4.1.0",
     "jest": "^23.6.0",
     "jest-extended": "^0.11.1",
-    "prettier": "^1.14.2",
-    "style-loader": "^3.3.0",
-    "webpack": "^5.58.1",
-    "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
+    "parcel": "^2.0.0",
+    "prettier": "^1.14.2"
   },
   "eslintConfig": {
     "extends": "react-app"

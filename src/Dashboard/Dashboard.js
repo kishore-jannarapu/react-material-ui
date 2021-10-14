@@ -23,20 +23,20 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "flex-end",
     padding: "0 8px",
-    ...theme.mixins.toolbar,
+    //...theme.mixins.toolbar,
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
+    //zIndex: theme.zIndex.drawer + 1,
+    // transition: theme.transitions.create(["width", "margin"], {
+    //   easing: theme.transitions.easing.sharp,
+    //   duration: theme.transitions.duration.leavingScreen,
+    // }),
   },
   appToolbar: {
-    [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-    },
+    // [theme.breakpoints.up("sm")]: {
+    //   width: `calc(100% - ${drawerWidth}px)`,
+    //   marginLeft: drawerWidth,
+    // },
   },
   menuButton: {
     marginRight: 36,
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
+    //padding: theme.spacing(2),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",

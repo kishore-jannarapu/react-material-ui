@@ -26,6 +26,9 @@ export default function Layout({ currentTheme, setCurrentTheme }) {
         <NavBar currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
         <div className="site-container">
           <Switch>
+            <Route path="/">
+              <Dashboard />
+            </Route>
             <Route exact path="/login">
               <SignIn />
             </Route>
@@ -55,9 +58,6 @@ export default function Layout({ currentTheme, setCurrentTheme }) {
             </Route>
             <Route path="/overview">
               <Home />
-            </Route>
-            <Route path="/">
-              <Dashboard />
             </Route>
           </Switch>
           <Divider />

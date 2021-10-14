@@ -30,4 +30,13 @@ module.exports = {
     ],
   },
   plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+  watch: true,
+  watchOptions: {
+    //Files or folders that are not monitored
+    ignored: /node_modules/,
+    //After listening to the change, it will wait for 300ms to execute the action, so as to prevent the file from being updated too fast, resulting in too high recompilation frequency
+    aggregateTimeout: 300,
+    //To judge whether the file has changed or not is realized by constantly asking the system whether the specified file has changed or not
+    poll: 1000,
+  },
 };

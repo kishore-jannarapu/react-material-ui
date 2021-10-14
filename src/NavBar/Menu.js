@@ -22,9 +22,10 @@ export default function Menu({ theme }) {
       indicatorColor="secondary"
       sx={{ paddingTop: "16px" }}
     >
-      <Tab label="Accounts" />
-      <Tab label="Portfolio" />
-      <Tab label="Pay & Transfer" />
+      <Tab label="My Profile" />
+      <Tab label="Projects" />
+      <Tab label="Payroll" />
+      <Tab label="React Components" />
     </Tabs>
   );
 }

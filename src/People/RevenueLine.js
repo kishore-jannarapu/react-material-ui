@@ -1,5 +1,5 @@
 import React from "react";
-import { useTheme } from "@mui/styles";
+import { useTheme } from "@mui/material/styles";
 import moment from "moment";
 
 import Highcharts from "highcharts";
@@ -41,12 +41,42 @@ export default function RevenueLine() {
   const theme = useTheme();
   const chartData = [
     { date: new Date(), fare: 1000 },
-    { date: moment(new Date()).add(1, "day").valueOf(), fare: 300 },
-    { date: moment(new Date()).add(2, "day").valueOf(), fare: 800 },
-    { date: moment(new Date()).add(3, "day").valueOf(), fare: 400 },
-    { date: moment(new Date()).add(4, "day").valueOf(), fare: 1300 },
-    { date: moment(new Date()).add(5, "day").valueOf(), fare: 2300 },
-    { date: moment(new Date()).add(6, "day").valueOf(), fare: 1900 },
+    {
+      date: moment(new Date())
+        .add(1, "day")
+        .valueOf(),
+      fare: 300,
+    },
+    {
+      date: moment(new Date())
+        .add(2, "day")
+        .valueOf(),
+      fare: 800,
+    },
+    {
+      date: moment(new Date())
+        .add(3, "day")
+        .valueOf(),
+      fare: 400,
+    },
+    {
+      date: moment(new Date())
+        .add(4, "day")
+        .valueOf(),
+      fare: 1300,
+    },
+    {
+      date: moment(new Date())
+        .add(5, "day")
+        .valueOf(),
+      fare: 2300,
+    },
+    {
+      date: moment(new Date())
+        .add(6, "day")
+        .valueOf(),
+      fare: 1900,
+    },
   ].filter(({ date }) => date);
   const mapped = chartData.map(({ fare, date }) => [
     moment(date).valueOf(),

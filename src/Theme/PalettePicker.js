@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import colors from "./colors";
+//import colors from "./colors";
 
 const Color = styled.div`
   width: 20px;
@@ -33,14 +33,14 @@ export default function PalettePicker({ currentTheme, setCurrentTheme }) {
   };
   return (
     <Flex>
-      {colors.map((color, index) => (
+      {/* {colors.map((color, index) => (
         <Color
           onClick={(e) => updateTheme(e, color)}
           selected={currentTheme.palette.primary[300] === color[300]}
           color={color[300]}
           key={index}
         />
-      ))}
+      ))} */}
     </Flex>
   );
 }

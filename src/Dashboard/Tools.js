@@ -16,15 +16,15 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
   pink: {
-    color: theme.palette.getContrastText(pink[500]),
+    //color: theme.palette.primary[50],
     backgroundColor: pink[500],
   },
   blue: {
-    color: theme.palette.getContrastText(blue[500]),
+    //color: theme.palette.primary[50],
     backgroundColor: blue[500],
   },
   green: {
-    color: theme.palette.getContrastText(blue[500]),
+    //color: theme.palette.primary[50],
     backgroundColor: green[500],
   },
 }));
